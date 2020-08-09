@@ -18,4 +18,6 @@ def three_no_sum(arr, sum)
 	output
 end
 
-print three_no_sum([12, 3, 1,2, -6, 5, -8, 6], 3)
+print three_no_sum([12, 3, 1,2, -6, 5, -8, 6], 0)
+print three_no_sum([-3, 0, 1, 2, -1, 1, -2], 0)
+print three_no_sum([-5, 2, -1, -2, 3], 0)
