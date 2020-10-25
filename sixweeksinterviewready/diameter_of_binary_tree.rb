@@ -1,22 +1,42 @@
 # Definition for a binary tree node.
-class TreeNode
-    attr_accessor :val, :left, :right, :length_left, :length_right
+class Treenode
+    attr_accessor :val, :left, :right
     def initialize(val = 0, left = nil, right = nil)
         @val = val
         @left = left
         @right = right
-        @length_left = 0
-        @length_right = 0
     end
 end
 # @param {TreeNode} root
 # @return {Integer}
-def diameter_of_binary_tree(root)
-	compute(root)
+class Diameter
+    def initialize(node)
+        @node = node
+        @diameter = 0
+    end
+
+    def calculate
+        traverse(@node)
+        [0, @diameter - 1].max
+    end
+
+    def traverse(node)
+        return 0 if node.nil?
+        return 1 if node.left.nil? && node.right.nil? 
+
+        left = traverse(node.left)
+        right = traverse(node.right)
+
+        @diameter = [@diameter, left + right + 1].max
+
+        [left, right].max + 1
+    end
 end
 
-def compute(root)
+root = Treenode.new(1)
+root.left = Treenode.new(2)
+root.right = Treenode.new(3)
+root.left.left = Treenode.new(4)
+root.left.right = Treenode.new(5)
+print Diameter.new(root).calculate
 
-	root.length_left = compute(root.left) if root.left
-	root.length_right = compute(root.right) if root.rights
-end
