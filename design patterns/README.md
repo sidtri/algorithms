@@ -46,7 +46,10 @@ Eg: Logistics -> [RoadLogistics(trasport-> new truck()), SeaLogistics(transport-
 ##### Structural
 Create classes best way 
 - Adapter pattern
+Adapter classes converts given object into derired object that'll get passed down to another class
+
 - Bridge pattern
+
 - Composite pattern
 - Decorator pattern
 - Facade pattern
