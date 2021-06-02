@@ -8,7 +8,7 @@
 
 - Senior developer: 
 	- Take more responsibility
-	- Knowing how to use your tools is good, but knowing when not to use them is bette
+	- Knowing how to use your tools is good, but knowing when not to use them is better
 	- Do testing, document your code
 	- Dont make mistakes again/again
 	- Debt: Prudent & Reckless.
@@ -19,3 +19,7 @@
 
 Over past 8 - I've had good transition from novice to professional by being more responsible, 
 
+
+- communication
+- mentoring others
+- seeing bigger picture

@@ -1,24 +1,24 @@
 def search_triplets(data)
 	triplets = []
 
-	tortoise, rabbit = 0, 1
+	slow, fast = 0, 1
 	duplicates = []
 
-	while tortoise < data.length
-		if rabbit == data.length
-			tortoise += 1
-			rabbit = tortoise + 1
+	while slow < data.length
+		if fast == data.length
+			slow += 1
+			fast = slow + 1
 			duplicates = []
 			next
 		end
 
-		diff = 0 - (data[tortoise] + data[rabbit])
-		if((data[(rabbit + 1)..-1] - duplicates).include? diff)
-			duplicates << data[rabbit]
-			triplets << [data[tortoise], data[rabbit], diff]
+		diff = 0 - (data[slow] + data[fast])
+		if((data[(fast + 1)..-1] - duplicates).include? diff)
+			duplicates << data[fast]
+			triplets << [data[slow], data[fast], diff]
 		end
 
-		rabbit += 1
+		fast += 1
 	end
 
 	return triplets
