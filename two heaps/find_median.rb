@@ -1,20 +1,43 @@
-class Median
+require_relative 'heap'
+
+class NumberStream
+	attr_accessor :maxHeap, :minHeap
 	def initialize
-		@numbers = []
+		@maxHeap = Heap.new
+		@minHeap = Heap.new(style='min')
 	end
 
 	def add_number(num)
-		@numbers.push(num)
+		if maxHeap.head == nil || num < maxHeap.head
+			maxHeap.add(num)
+		else
+			minHeap.add(num)
+		end
+
+		if maxHeap.count > (minHeap.count + 1)
+			minHeap.add(maxHeap.pop)
+		elsif maxHeap.count < minHeap.count
+			maxHeap.add(minHeap.pop)
+		end
 	end
 
-	def median
-		length = @numbers.length
-		if length.even?
-			(@numbers[(length/2) - 1] + @numbers[length/2])/2
+	def find_median()
+		if maxHeap.count ==  minHeap.count
+			(maxHeap.leaf + minHeap.leaf) / 2.0
 		else
-			@numbers[length/2]
+			maxHeap.leaf
 		end
 	end
 end
 
 
+stream = NumberStream.new()
+stream.add_number(3)
+stream.add_number(1)
+print stream.find_median() # 2.0
+puts ""
+stream.add_number(5)
+print stream.find_median() # 3.0
+puts ""
+stream.add_number(4)
+print stream.find_median() # 3.5
