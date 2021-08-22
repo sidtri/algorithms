@@ -1,22 +1,20 @@
-# gem install rb_heap
 require 'rb_heap'
 require 'pry'
-
-def top_k_numbers(array, k)
-	heap = Heap.new(:<)		
+def kth_smallest(array, k)
+	heap = Heap.new(:>)
 
 	array[0..(k-1)].each do |a|
 		heap.add(a)
 	end
 
 	array[(k-1)..-1].each do |a|
-		if a > heap.peak
+		if heap.peak > a
 			heap.pop
 			heap.add(a)
 		end
 	end
 
-	heap.to_a
+	heap.peak
 end
 
-print top_k_numbers([3,1,5,12,2,11], 3)
+print kth_smallest([1, 5, 12, 2, 11, 5], 2)
