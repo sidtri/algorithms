@@ -9,6 +9,8 @@ def max_sum_subarray(array)
 	max_sum
 end
 
-
 puts max_sum_subarray([-1, 20, -2, -9, 32, 1,2])
 puts max_sum_subarray([1, -2,-9,3,2,4,5])
+
+# Assumptions
+# - sub array should be continous
